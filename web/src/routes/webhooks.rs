@@ -69,7 +69,7 @@ async fn post_payment_request(data: String) -> ApiResult<()> {
         return Err(().into());
     }
 
-    if event.receiver_email != "redfreebird41@gmail.com" {
+    if event.receiver_email != "lilrosierae@icloud.com" {
         return Err(().into());
     }
 
@@ -131,21 +131,21 @@ async fn post_payment_request(data: String) -> ApiResult<()> {
     }
 
     let member = member.unwrap();
-    if event.mc_gross >= 90.0 {
+    if event.mc_gross >= 30.0 {
         block_on(CLIENT.add_guild_member_role(
             member.guild_id,
             member.user.id,
             RoleId(CONFIG.premium5_role),
         ))
         .await??;
-    } else if event.mc_gross >= 60.0 {
+    } else if event.mc_gross >= 20.0 {
         block_on(CLIENT.add_guild_member_role(
             member.guild_id,
             member.user.id,
             RoleId(CONFIG.premium3_role),
         ))
         .await??;
-    } else if event.mc_gross >= 30.0 {
+    } else if event.mc_gross >= 10.0 {
         block_on(CLIENT.add_guild_member_role(
             member.guild_id,
             member.user.id,
